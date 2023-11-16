@@ -14,8 +14,7 @@
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-2 text-white animated slideInDown mb-4">Explore the Rich Tapestry of Philippine History Through Gamified Learning</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                    <a href="" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                    <a href="{% url 'about' %}" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -29,8 +28,7 @@
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-2 text-white animated slideInDown mb-4">Dive into the Past with Fun: Gamified Learning for Philippine History Enthusiasts</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                    <a href="" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>
+                                    <a href="{% url 'about' %}" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +48,7 @@
                         <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor est vero nonumy magna.</p>
                         <div class="row g-4 align-items-center">
                             <div class="col-sm-6">
-                                <a class="btn btn-outline-light rounded-pill py-3 px-5" href="">Read More</a>
+                                <a class="btn btn-outline-light rounded-pill py-3 px-5" href="{% url 'about' %}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +90,7 @@
                                 <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-1.jpg' %}" alt="">
                             </div>
                             <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lesson' %}">Introduction to Philippine History</a>
+                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Introduction to Philippine History</a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +100,7 @@
                                 <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-2.jpg' %}" alt="">
                             </div>
                             <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);;">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lesson' %}">Pre-Colonial Philippines</a>
+                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Pre-Colonial Philippines</a>
                             </div>
                         </div>
                     </div>
@@ -112,7 +110,7 @@
                                 <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-3.jpg' %}" alt="">
                             </div>
                             <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lesson' %}">Early Filipino Societies and Cultures</a>
+                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Early Filipino Societies and Cultures</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +120,7 @@
                                 <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-4.jpg' %}" alt="">
                             </div>
                             <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lesson' %}">Indigenous Peoples of the Philippines</a>
+                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Indigenous Peoples of the Philippines</a>
                             </div>
                         </div>
                     </div>
@@ -132,7 +130,7 @@
                                 <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-5.jpg' %}" alt="">
                             </div>
                             <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lesson' %}">Trade and Cultural Exchanges</a>
+                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Trade and Cultural Exchanges</a>
                             </div>
                         </div>
                     </div>

@@ -11,6 +11,9 @@ def about(request):
     return render(request, "website/about.html")
 
 
-def chapters(request):
-    return render(request, "website/chapters.html")
+def login(request):
+    return render(request, "website/login.html")
 
+
+def register(request):
+    return render(request, "website/register.html")
