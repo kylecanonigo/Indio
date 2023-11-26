@@ -1,6 +1,6 @@
 from django.db import models
 
-from chapters.models import Lessons, Images
+from chapters.models import Lessons
 
 
 # Create your models here.
