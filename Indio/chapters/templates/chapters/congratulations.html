@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Congratulations{% endblock %}
+
+{% block content %}
+<!-- Appointment Start -->
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="bg rounded" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="mb-4">Congratulations</h1>
+                                    <div class="row g-3">
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                Score
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                Time
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                Dolor amet sit justo amet elitr clita ipsum elitr est. Dolor amet sit justo amet elitr clita ipsum elitr est. Dolor amet sit justo amet elitr clita ipsum elitr est.
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <a href="{% url 'index' %}">
+                                                <button class="btn btn-outline-light w-100 py-3">Home</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute w-100 h-100 rounded" src="{% static 'website/img/appointment.jpg' %}" style="object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Appointment End -->
+
+{% endblock %}

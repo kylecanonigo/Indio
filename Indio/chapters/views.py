@@ -14,3 +14,8 @@ def lessons_list(request):
 def detail(request, id):
     return render(request, "chapters/detail.html")
 
+
+def congratulations(request):
+    return render(request, "chapters/congratulations.html")
+
+
