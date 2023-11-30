@@ -6,41 +6,29 @@ from timeline.models import TimelineTypeGame
 
 # Create your views here.
 
+class TimelineTypeGameView(View):
+    template_name = 'timeline/timeline.html'
 
-def timeline(request):
-    return render(request, "timeline/timeline.html")
+    def get(self, request):
+        current_game, next_game_index = self._get_game_details(request)
+        context = {
+            'current_game': current_game,
+            'next_game_index': next_game_index,
+            'correct_img1': current_game.correct_img1.url,
+            'correct_img2': current_game.correct_img2.url,
+            'correct_img3': current_game.correct_img3.url,
+        }
+        return render(request, self.template_name, context)
 
+    def _get_game_details(self, request):
+        games = TimelineTypeGame.objects.all()
+        game_index = int(request.GET.get('game_index', 0))
+        current_game = self._get_current_game(games, game_index)
+        next_game_index = self._calculate_next_game_index(game_index, len(games))
+        return current_game, next_game_index
 
-# class TimelineTypeGameView(View):
-#     template_name = 'timeline_game.html'  # Replace with your actual template name
-#
-#     def get(self, request, game_id):
-#         game = get_object_or_404(TimelineTypeGame, pk=game_id)
-#
-#         # Mocking logic for the game (replace this with your actual game logic)
-#         submitted_answers = {
-#             'submitted_img1': request.GET.get('submitted_img1'),
-#             'submitted_img2': request.GET.get('submitted_img2'),
-#             'submitted_img3': request.GET.get('submitted_img3')
-#         }
-#
-#         correct_answers = {
-#             'correct_img1': str(game.correct_img1),
-#             'correct_img2': str(game.correct_img2),
-#             'correct_img3': str(game.correct_img3)
-#         }
-#
-#         # Check if the submitted answers match the correct answers
-#         result = all(submitted_answers[key] == value for key, value in correct_answers.items())
-#
-#         result_message = 'Correct!' if result else 'Incorrect. Try again!'
-#
-#         # Passing game details and result message to the template
-#         context = {
-#             'game': game,
-#             'result_message': result_message,
-#             # Add additional context data as needed for your game logic
-#         }
-#
-#         return render(request, self.template_name, context)
+    def _get_current_game(self, games, game_index):
+        return games[game_index]
 
+    def _calculate_next_game_index(self, game_index, total_games):
+        return (game_index + 1) % total_games

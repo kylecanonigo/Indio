@@ -6,14 +6,14 @@
 <!-- Game Start -->
         <div id="game-container">
             <!-- Answer -->
-            <div class="wow fadeInUp" data-wow-delay="0.5s"">
+            <div class="wow fadeInUp" data-wow-delay="0.5s">
                 <div id="image-container" class="mb-3"> <!-- Added margin-bottom -->
                     <!-- Image placeholders (you can replace the src attribute with your image URLs) -->
                     <div class="about-img">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/gradient.jpeg' %}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
+                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/gradient.jpeg' %}" alt="" style="width: 275px; height: 275px; object-fit: cover;" onclick="deselectImage(this);">
                     </div>
                     <div class="about-img">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/gradient.jpeg' %}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
+                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/gradient.jpeg' %}" alt="" style="width: 275px; height: 275px; object-fit: cover;" onclick="deselectImage(this);">
                     </div>
                 </div>
             </div>
@@ -23,17 +23,17 @@
                 <div class="row g-2 pt-2">
                     <div class="col-4">
                         <div class="about-img">
-                            <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/classes-1.jpg' %}" alt="" style="width: 181.33px; height: 181.33px; object-fit: cover;">
+                            <img class="img-fluid rounded bg-light p-1" src="{{ current_game.image1.url }}" alt="" style="width: 181.33px; height: 181.33px; object-fit: cover;" onclick="selectImage('{{ current_game.image1.url }}')">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="about-img">
-                            <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/classes-6.jpg' %}" alt="" style="width: 181.33px; height: 181.33px; object-fit: cover;">
+                            <img class="img-fluid rounded bg-light p-1" src="{{ current_game.image2.url }}" alt="" style="width: 181.33px; height: 181.33px; object-fit: cover;" onclick="selectImage('{{ current_game.image2.url }}')">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="about-img">
-                            <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/classes-3.jpg' %}" alt="" style="width: 181.33px; height: 181.33px; object-fit: cover;">
+                            <img class="img-fluid rounded bg-light p-1" src="{{ current_game.image3.url }}" alt="" style="width: 181.33px; height: 181.33px; object-fit: cover;" onclick="selectImage('{{ current_game.image3.url }}')">
                         </div>
                     </div>
                 </div>
@@ -43,13 +43,23 @@
                 <div id="score-container">
                     <!-- Display score and level -->
                     Score: <span id="score">XXXX</span> | Level: <span id="level">X</span>
+                    <span id="output"></span>
                 </div>
             </div>
 
             <div class="wow fadeInUp" data-wow-delay="0.5s"">
                 <button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;" onclick="requestHint()">Hint</button>
-                <a href="{% url 'timeline' %}"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;" onclick="nextLevel()">Next</button></a>
+                <a href="{% url 'matching' %}?game_index={{ next_game_index }}"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;">Next</button></a>
             </div>
         </div>
         <!-- Game End -->
+       <!-- Game End -->
+    <!-- Inside your template, set a JavaScript variable with the URL -->
+    <script>
+        const gradientImageUrl = "{% static 'website/img/gradient.jpeg' %}";
+    </script>
+
+    <!-- Link your JavaScript file -->
+    <script src="{% static 'matching/js/matching_game.js' %}"></script>
+
 {% endblock %}

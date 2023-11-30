@@ -9,57 +9,99 @@
                 <div id="image-container">
                     <!-- Image placeholders (you can replace the src attribute with your image URLs) -->
                     <div class="about-img">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/carousel-1.jpg' %}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ current_game.image1.url }}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
                     </div>
 
                     <div class="about-img">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/classes-2.jpg' %}"alt="" style="width: 275px; height: 275px; object-fit: cover;">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ current_game.image2.url }}"alt="" style="width: 275px; height: 275px; object-fit: cover;">
                     </div>
 
                     <div class="about-img">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/classes-3.jpg' %}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ current_game.image3.url }}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
                     </div>
 
                     <div class="about-img">
-                        <img class="img-fluid rounded bg-light p-1" src="{% static 'website/img/classes-4.jpg' %}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
+                        <img class="img-fluid rounded bg-light p-1" src="{{ current_game.image4.url }}" alt="" style="width: 275px; height: 275px; object-fit: cover;">
                     </div>
                 </div>
             </div>
 
-            <div class="wow fadeInUp" data-wow-delay="0.5s"">
+            <div class="wow fadeInUp" data-wow-delay="0.5s">
                 <div id="word-blanks" onclick="deselectLetter()">
                     <!-- Display blanks for the word -->
-                    <div class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px;"></div>
-                    <div class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px;"></div>
-                    <div class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px;"></div>
-                    <div class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px;"></div>
+                    {% for _ in correct_answer_buttons %}
+                        <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px;"></button>
+                    {% endfor %}
                 </div>
             </div>
 
-            <div class="wow fadeInUp" data-wow-delay="0.5s"">
+            <div class="wow fadeInUp" data-wow-delay="0.5s">
                 <div id="letter-container">
                     <!-- List of clickable letters -->
-                    <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px" onclick="selectLetter('A')">A</button>
-                    <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px" onclick="selectLetter('B')">B</button>
-                    <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px" onclick="selectLetter('C')">C</button>
-                    <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px" onclick="selectLetter('D')">D</button>
-                    <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px" onclick="selectLetter('E')">E</button>
-                    <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px" onclick="selectLetter('F')">F</button>
-                    <!-- Add more letters as needed -->
+                    {% for button_value in correct_answer_buttons %}
+                        <button class="btn btn-outline-light py-2 top-0 end-0 mt-0 me-1" style="width: 50px; height: 50px" onclick="selectLetter('{{ button_value }}')">{{ button_value }}</button>
+                    {% endfor %}
                 </div>
             </div>
 
-            <div class="wow fadeInUp" data-wow-delay="0.5s"">
+            <div class="wow fadeInUp" data-wow-delay="0.5s">
                 <div id="score-container">
                     <!-- Display score and level -->
-                    Score: <span id="score">XXXX</span> | Level: <span id="level">X</span>
+                    Score: <span id="score">XXXX</span> | Level: <span id="level">X</span><br>
+                    <span id="output"></span>
                 </div>
             </div>
 
             <div class="wow fadeInUp" data-wow-delay="0.5s"">
                 <button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;" onclick="requestHint()">Hint</button>
-                <a href="{% url 'matching' %}"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;" onclick="nextLevel()">Next</button></a>
+                <!-- "Next" button to navigate to the next game -->
+                <a href="{% url 'four' %}?game_index={{ next_game_index }}"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;">Next</button></a>
             </div>
         </div>
         <!-- Game End -->
+
+        <script>
+            function selectLetter(letter) {
+                const blanks = document.querySelectorAll('#word-blanks button');
+                let selectedLetters = '';
+
+                for (let i = 0; i < blanks.length; i++) {
+                    if (blanks[i].innerText === '') {
+                        blanks[i].innerText = letter;
+                        blanks[i].addEventListener('click', function() {
+                            if (this.innerText === letter) {
+                                this.innerText = '';
+                                checkAnswer(); // Check the answer on deselecting
+                            }
+                        });
+                        break;
+                    }
+                }
+
+                // Gather all selected letters into a single string
+                blanks.forEach(button => {
+                    selectedLetters += button.innerText;
+                });
+
+                // Check the answer
+                function checkAnswer() {
+                    selectedLetters = '';
+                    blanks.forEach(button => {
+                        selectedLetters += button.innerText;
+                    });
+
+                    const correctAnswer = '{{ current_game.correct_answer }}';
+                    const output = document.getElementById('output');
+
+                    if (selectedLetters === correctAnswer.replace(/\s/g, '')) {
+                        output.innerText = 'Correct!';
+                        output.style.color = 'yellow'; // Change the color to yellow
+                    } else {
+                        output.innerText = 'Incorrect!';
+                        output.style.color = 'red'; // Change the color to red for incorrect
+                    }
+                }
+                checkAnswer(); // Initial check when a letter is selected
+            }
+        </script>
 {% endblock %}

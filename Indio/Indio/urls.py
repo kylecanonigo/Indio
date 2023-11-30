@@ -18,18 +18,23 @@ from django.contrib import admin
 from django.urls import path, include
 
 from chapters.views import congratulations
+from timeline.views import TimelineTypeGameView
 from website.views import index, about, login
-from four.views import four
-from matching.views import matching
-from timeline.views import timeline
+from four.views import FourPicsOneWordGameView
+from matching.views import MatchingTypeGameView
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('about/', about, name="about"),
-    path('four/', four, name="four"),
-    path('matching/', matching, name="matching"),
-    path('timeline/', timeline, name="timeline"),
+    path('four/', FourPicsOneWordGameView.as_view(), name="four"),
+    path('matching/', MatchingTypeGameView.as_view(), name="matching"),
+    path('timeline/', TimelineTypeGameView.as_view(), name="timeline"),
     path('login/', login, name="login"),
     path('chapters/', include('chapters.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
