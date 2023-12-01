@@ -14,3 +14,5 @@ class MatchingTypeGame(models.Model):
     correct_img1 = models.ImageField(upload_to='matching/files/matching_game')
     correct_img2 = models.ImageField(upload_to='matching/files/matching_game')
 
+    def __str__(self):
+        return f"Game ID: {self.game_id}, Lesson: {self.lesson}"

@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from chapters.views import congratulations
+
 from timeline.views import TimelineTypeGameView
 from website.views import index, about, login
 from four.views import FourPicsOneWordGameView

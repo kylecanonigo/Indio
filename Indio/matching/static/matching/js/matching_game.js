@@ -25,7 +25,3 @@ window.deselectImage = function(clickedImage) {
         window.selectedImages = window.selectedImages.filter(imgUrl => imgUrl !== clickedImage.src);
     }
 };
-
-window.compareAnswers = function() {
-    // TODO
-};

@@ -15,3 +15,5 @@ class TimelineTypeGame(models.Model):
     correct_img2 = models.ImageField(upload_to='timeline/files/timeline_game')
     correct_img3 = models.ImageField(upload_to='timeline/files/timeline_game')
 
+    def __str__(self):
+        return f"Game ID: {self.game_id}, Lesson: {self.lesson}"

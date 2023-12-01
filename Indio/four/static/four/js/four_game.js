@@ -31,7 +31,7 @@ window.attachButtonClickEvent = function(button, letter) {
             this.innerText = '';
             const blanks = document.querySelectorAll('#word-blanks button');
             const selectedLetters = gatherSelectedLetters(blanks);
-            checkAnswer(selectedLetters);
+//            checkAnswer(selectedLetters);
         }
     });
 };
@@ -42,17 +42,4 @@ window.gatherSelectedLetters = function(buttons) {
         selectedLetters += button.innerText;
     });
     return selectedLetters;
-};
-
-window.checkAnswer = function(letters) {
-    const correctAnswer = '{{ current_game.correct_answer }}';
-    const output = document.getElementById('output');
-
-    if (letters === correctAnswer.replace(/\s/g, '')) {
-        output.innerText = 'Correct!';
-        output.style.color = 'yellow'; // Change the color to yellow
-    } else {
-        output.innerText = 'Incorrect!';
-        output.style.color = 'red'; // Change the color to red for incorrect
-    }
 };

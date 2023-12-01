@@ -1,21 +1,24 @@
 from django.shortcuts import render
-
-# Create your views here.
-
-
-def chapters_list(request):
-    return render(request, "chapters/chapters_list.html")
+from django.views import View
 
 
-def lessons_list(request):
-    return render(request, "chapters/lessons_list.html")
+class ChaptersListView(View):
+    def get(self, request):
+        return render(request, "chapters/chapters_list.html")
 
 
-def detail(request, id):
-    return render(request, "chapters/detail.html")
+class LessonsListView(View):
+    def get(self, request):
+        return render(request, "chapters/lessons_list.html")
 
 
-def congratulations(request):
-    return render(request, "chapters/congratulations.html")
+class DetailView(View):
+    def get(self, request, id):
+        return render(request, "chapters/detail.html")
+
+
+class CongratulationsView(View):
+    def get(self, request):
+        return render(request, "chapters/congratulations.html")
 
 

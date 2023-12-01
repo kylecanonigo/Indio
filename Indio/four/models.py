@@ -14,3 +14,5 @@ class FourPicsOneWord(models.Model):
     image4 = models.ImageField(upload_to='four/files/four_pics_game')
     correct_answer = models.CharField(max_length=255)
 
+    def __str__(self):
+        return f"Game ID: {self.game_id}, Lesson: {self.lesson}, Correct Answer: {self.correct_answer}"

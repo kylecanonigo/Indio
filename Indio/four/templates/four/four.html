@@ -60,48 +60,5 @@
         </div>
         <!-- Game End -->
 
-        <script>
-            function selectLetter(letter) {
-                const blanks = document.querySelectorAll('#word-blanks button');
-                let selectedLetters = '';
-
-                for (let i = 0; i < blanks.length; i++) {
-                    if (blanks[i].innerText === '') {
-                        blanks[i].innerText = letter;
-                        blanks[i].addEventListener('click', function() {
-                            if (this.innerText === letter) {
-                                this.innerText = '';
-                                checkAnswer(); // Check the answer on deselecting
-                            }
-                        });
-                        break;
-                    }
-                }
-
-                // Gather all selected letters into a single string
-                blanks.forEach(button => {
-                    selectedLetters += button.innerText;
-                });
-
-                // Check the answer
-                function checkAnswer() {
-                    selectedLetters = '';
-                    blanks.forEach(button => {
-                        selectedLetters += button.innerText;
-                    });
-
-                    const correctAnswer = '{{ current_game.correct_answer }}';
-                    const output = document.getElementById('output');
-
-                    if (selectedLetters === correctAnswer.replace(/\s/g, '')) {
-                        output.innerText = 'Correct!';
-                        output.style.color = 'yellow'; // Change the color to yellow
-                    } else {
-                        output.innerText = 'Incorrect!';
-                        output.style.color = 'red'; // Change the color to red for incorrect
-                    }
-                }
-                checkAnswer(); // Initial check when a letter is selected
-            }
-        </script>
+        <script src="{% static 'four/js/four_game.js' %}"></script>
 {% endblock %}
