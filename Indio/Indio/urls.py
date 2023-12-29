@@ -17,11 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-
-from timeline.views import TimelineTypeGameView
-from website.views import index, about, login
+from website.views import index, about
 from four.views import FourPicsOneWordGameView
-from matching.views import MatchingTypeGameView
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -29,10 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('about/', about, name="about"),
-    path('four/', FourPicsOneWordGameView.as_view(), name="four"),
-    path('matching/', MatchingTypeGameView.as_view(), name="matching"),
-    path('timeline/', TimelineTypeGameView.as_view(), name="timeline"),
-    path('login/', login, name="login"),
+    path('four/', include('four.urls')),
     path('chapters/', include('chapters.urls')),
 ]
 

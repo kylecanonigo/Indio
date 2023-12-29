@@ -17,8 +17,5 @@ class DetailView(View):
         return render(request, "chapters/detail.html")
 
 
-class CongratulationsView(View):
-    def get(self, request):
-        return render(request, "chapters/congratulations.html")
 
 
