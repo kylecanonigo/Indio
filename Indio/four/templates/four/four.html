@@ -47,19 +47,27 @@
             <div class="wow fadeInUp" data-wow-delay="0.5s">
                 <div id="score-container">
                     <!-- Display score and level -->
-                    Score: <span id="score">XXXX</span> | Level: <span id="level">X</span><br>
+                    Level: <span id="level" style="color: yellow;">{{ next_game_index }}</span><br>
                     <span id="output"></span>
                 </div>
             </div>
 
+            <div class="description" style="display: none;">
+                <p>{{ current_game.description }}</p>
+            </div>
+
             <div class="wow fadeInUp" data-wow-delay="0.5s" style="display: flex; justify-content: flex-end; padding-top: 10px;">
-                <!-- "Next" button to navigate to the next game -->
+                <!-- "Hint" button to get a hint for the game -->
+                <a href="#" onclick="toggleDescription()"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-2 hint-button" style="width: 110px;">Show Hint</button></a>
                 {% if next_game_index == total_games %}
+                    <!-- "Next" button to navigate to the next game -->
                     <a href="{% url 'congrats' %}"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;">Next</button></a>
                 {% else %}
+                    <!-- "Next" button to navigate to the next game -->
                     <a href="{% url 'four' %}?game_index={{ next_game_index }}"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;">Next</button></a>
                 {% endif %}
             </div>
+
         </div>
         <!-- Game End -->
 
@@ -100,12 +108,31 @@
                     if (selectedLetters === correctAnswer.replace(/\s/g, '')) {
                         output.innerText = 'Correct!';
                         output.style.color = 'yellow'; // Change the color to yellow
+
+                        const scoreElement = document.getElementById('score');
+                        let score = parseInt(scoreElement.innerText) || 0; // Ensure it's a number or initialize to 0
+                        score += 10;
+                        scoreElement.innerText = score;
+                        scoreElement.style.color = 'yellow'; // Change the color of the score to yellow
                     } else {
                         output.innerText = 'Incorrect!';
                         output.style.color = 'red'; // Change the color to red for incorrect
                     }
                 }
                 checkAnswer(); // Initial check when a letter is selected
+            }
+
+              function toggleDescription() {
+                const description = document.querySelector('.description');
+                const hintButton = document.querySelector('.hint-button');
+
+                if (description.style.display === 'none') {
+                    description.style.display = 'block';
+                    hintButton.innerText = 'Hide Hint';
+                } else {
+                    description.style.display = 'none';
+                    hintButton.innerText = 'Show Hint';
+                }
             }
         </script>
 {% endblock %}

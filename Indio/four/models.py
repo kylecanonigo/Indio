@@ -8,10 +8,7 @@ from chapters.models import Lessons
 class FourPicsOneWord(models.Model):
     game_id = models.AutoField(primary_key=True)
     lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
-    image1 = models.ImageField(upload_to='four/files/four_pics_game')
-    image2 = models.ImageField(upload_to='four/files/four_pics_game')
-    image3 = models.ImageField(upload_to='four/files/four_pics_game')
-    image4 = models.ImageField(upload_to='four/files/four_pics_game')
+    description = models.CharField(max_length=1000)
     correct_answer = models.CharField(max_length=255)
 
     def __str__(self):
