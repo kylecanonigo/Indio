@@ -17,15 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from website.views import index, about
+from website.views import IndexView, AboutView
 from four.views import FourPicsOneWordGameView
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name="index"),
-    path('about/', about, name="about"),
+    path('', IndexView.as_view(), name="index"),
+    path('about/', AboutView.as_view(), name="about"),
     path('four/', include('four.urls')),
     path('chapters/', include('chapters.urls')),
 ]
