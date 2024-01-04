@@ -1,187 +1,36 @@
-{% extends "base.html" %}
+
 {% load static %}
-{% block title %}Welcome{% endblock %}
 
 {% block content %}
-        <!-- Carousel Start -->
-        <div class="container-fluid p-0 mb-5">
-            <div class="owl-carousel header-carousel position-relative">
-                <div class="owl-carousel-item position-relative">
-                    <img class="img-fluid" src="{% static 'website/img/carousel-1.jpg' %}" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Explore the Rich Tapestry of Philippine History Through Gamified Learning</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="{% url 'about' %}" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-carousel-item position-relative">
-                    <img class="img-fluid" src="{% static 'website/img/carousel-2.jpg' %}" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Dive into the Past with Fun: Gamified Learning for Philippine History Enthusiasts</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="{% url 'about' %}" class="btn btn-outline-light rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel End -->
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Game Menu | GUI Challenges</title>
+    <meta charset="utf-8">
 
-        <!-- About Start -->
-        <div class="container-fluid py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor est vero nonumy magna.</p>
-                        <div class="row g-4 align-items-center">
-                            <div class="col-sm-6">
-                                <a class="btn btn-outline-light rounded-pill py-3 px-5" href="{% url 'about' %}">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <img class="img-fluid w-75 rounded-circle p-3" src="{% static 'website/img/about-1.jpg' %}" alt=""  style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                            </div>
-                            <div class="col-6 text-start" style="margin-top: -150px;">
-                                <img class="img-fluid w-100 rounded-circle p-3" src="{% static 'website/img/about-2.jpg' %}" alt="" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                            </div>
-                            <div class="col-6 text-end" style="margin-top: -150px;">
-                                <img class="img-fluid w-100 rounded-circle p-3" src="{% static 'website/img/about-3.jpg' %}" alt="" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="hsl(221 90% 98%)" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="Canvas" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="🙂">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="{% static 'website/css/menu.css' %}">
+    <script type="module" src="/index.js"></script>
+  </head>
+  <body>
+
+    <ul class="threeD-button-set">
+      <li><a href="{% url 'four:four' 1 %}"><button>Chapter 1</button></a></li>
+      <li><a href="{% url 'four:four' 2 %}"><button>Chapter 2</button></a></li>
+      <li><a href="{% url 'four:four' 3 %}"><button>Chapter 3</button></a></li>
+      <li><a href="{% url 'four:four' 4 %}"><button>Chapter 4</button></a></li>
+      <li><a href="{% url 'four:four' 5 %}"><button>Chapter 5</button></a></li>
+    </ul> 
 
 
-        <!-- Call To Action Start -->
 
-        <!-- Call To Action End -->
+  </body>
+</html>
 
-
-        <!-- Chapter Start -->
-        <div class="container-fluid py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Chapters</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-1.jpg' %}" alt="">
-                            </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Ang aking bansa</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="classes-item">
-                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-2.jpg' %}" alt="">
-                            </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);;">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Lipunan at ekonomiya ng aking bansa</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="classes-item">
-                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-3.jpg' %}" alt="">
-                            </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Kultura ng aking bansa</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-4.jpg' %}" alt="">
-                            </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Ang pamamahala sa aking bansa</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="classes-item">
-                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-5.jpg' %}" alt="">
-                            </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Ako sa pag unlad sa aking bansa</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Chapter End -->
-
-        <!-- Testimonial Start -->
-        <div class="container-fluid py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Our Clients Say!</h1>
-                    <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="testimonial-item rounded p-5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
-                        <div class="d-flex align-items-center me-n5" style="border-radius: 50px 0 0 50px; background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'website/img/testimonial-1.jpg' %}" style="width: 90px; height: 90px;">
-                            <div class="ps-3">
-                                <h3 class="mb-1">Client Name</h3>
-                                <span>Profession</span>
-                            </div>
-                            <i class="fa fa-quote-right fa-3x text-white ms-auto d-none d-sm-flex"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-item rounded p-5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
-                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px; background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'website/img/testimonial-2.jpg' %}" style="width: 90px; height: 90px;">
-                            <div class="ps-3">
-                                <h3 class="mb-1">Client Name</h3>
-                                <span>Profession</span>
-                            </div>
-                            <i class="fa fa-quote-right fa-3x text-white ms-auto d-none d-sm-flex"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-item rounded p-5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                        <p class="fs-5">Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
-                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px; background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'website/img/testimonial-3.jpg' %}" style="width: 90px; height: 90px;">
-                            <div class="ps-3">
-                                <h3 class="mb-1">Client Name</h3>
-                                <span>Profession</span>
-                            </div>
-                            <i class="fa fa-quote-right fa-3x text-white ms-auto d-none d-sm-flex"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
 {% endblock %}

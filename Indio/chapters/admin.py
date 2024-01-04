@@ -1,10 +1,9 @@
 from django.contrib import admin
 
-from chapters.models import Chapters, Lessons
+from chapters.models import Chapter
 
 # Register your models here.
 
 
-admin.site.register(Chapters)
-admin.site.register(Lessons)
+admin.site.register(Chapter)
 

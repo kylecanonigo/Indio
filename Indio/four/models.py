@@ -1,15 +1,16 @@
 from django.db import models
 
-from chapters.models import Lessons
+from chapters.models import Chapter
 
 
 # Create your models here.
 
-class FourPicsOneWord(models.Model):
-    game_id = models.AutoField(primary_key=True)
-    lesson = models.ForeignKey(Lessons, on_delete=models.CASCADE)
-    description = models.CharField(max_length=1000)
-    correct_answer = models.CharField(max_length=255)
+class GameWords(models.Model):
+    word_id = models.AutoField(primary_key=True)
+    chapter_id = models.ForeignKey(Chapter, on_delete=models.CASCADE)
+    word = models.CharField(max_length=100)
+    word_desc = models.TextField()
+    is_ans = models.BooleanField()
 
     def __str__(self):
-        return f"Game ID: {self.game_id}, Lesson: {self.lesson}, Correct Answer: {self.correct_answer}"
+        return f"Word ID: {self.word_id}, Chapter: {self.chapter_id}, Correct Answer: {self.word}"

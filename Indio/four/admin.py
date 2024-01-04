@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from four.models import FourPicsOneWord
+from four.models import GameWords
 
 # Register your models here.
 
-admin.site.register(FourPicsOneWord)
+admin.site.register(GameWords)
 

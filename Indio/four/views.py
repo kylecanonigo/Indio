@@ -1,12 +1,16 @@
-from django.shortcuts import render, get_object_or_404, redirect
+import os
+
+import openai
+from django.shortcuts import render
 from django.views import View
 import random
-from four.models import FourPicsOneWord
 
-import base64
-import os
-import openai
 from openai import OpenAI
+
+from four.models import GameWords
+
+
+
 
 # Create your views here.
 
@@ -18,11 +22,11 @@ class FourPicsOneWordGameView(View):
     congrats_template = 'congrats'
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
-    def get(self, request):
-        current_game, next_game_index, correct_answer_buttons, total_games = self._get_game_details(request)
+    def get(self, request, chapter_id):
+        current_game, next_game_index, correct_answer_buttons, total_games = self._get_game_details(request, chapter_id)
 
-        image_url_1 = self._fetch_image_1()
-        image_url_2 = self._fetch_image_2()
+        image_url_1 = "https://www.w3schools.com/images/lamp.jpg"      #self._fetch_image_1()
+        image_url_2 = "https://www.w3schools.com/images/lamp.jpg"     #self._fetch_image_2()
 
         context = {
             'current_game': current_game,
@@ -31,6 +35,7 @@ class FourPicsOneWordGameView(View):
             'total_games': total_games,
             'image_url_1': image_url_1,
             'image_url_2': image_url_2,
+            'chapter_id': chapter_id,
         }
         return render(request, self.template_name, context)
 
@@ -62,24 +67,51 @@ class FourPicsOneWordGameView(View):
         print(image_url)
         return image_url
 
-    def _get_game_details(self, request):
-        games = FourPicsOneWord.objects.all()
-        game_index = int(request.GET.get('game_index', 0))
-        current_game = self._get_current_game(games, game_index)
-        total_games = len(games)
-        next_game_index = self._calculate_next_game_index(game_index, total_games)
+    def setSession(self, request,  word_ids):
+        if ('word_ids' in request.session) and ('word_index' in request.session):
+            return
+
+        request.session['word_ids'] = word_ids
+        request.session['word_index'] = 0
+
+
+    def _get_game_details(self, request, chapter_id):
+        queryset = GameWords.objects.filter(chapter_id_id=chapter_id, is_ans=False)
+
+        if not queryset:
+            print("Empty")
+            return None, None, None, 0
+
+        word_ids = list(queryset.values_list('word_id', flat=True))
+        random.shuffle(word_ids)
+
+        self.setSession(request, word_ids)
+
+        game_index = self.getIndex(request)
+        current_game = self.getCurrentQuestion(game_index, queryset)
+        total_games = len(queryset)
+        next_game_index = self.NextIndex(request)
         correct_answer_buttons = self._prepare_correct_answer_buttons(current_game)
         return current_game, next_game_index, correct_answer_buttons, total_games
 
-    def _get_current_game(self, games, game_index):
-        return games[game_index]
+    def getCurrentQuestion(self, index, queryset):
+        if index is None:
+            return queryset[0]
+        return queryset[index]
 
-    def _calculate_next_game_index(self, game_index, total_games):
-        return game_index + 1
+    def getIndex(self, request):
+        curr = request.session.get('word_index', -1)
+        return curr
+
+
+    def NextIndex(self, request):
+        curr = request.session.get('word_index', -1)
+        request.session['word_index'] = curr + 1
+        return curr + 1
 
     def _prepare_correct_answer_buttons(self, current_game):
         correct_answer_buttons = []
-        for char in current_game.correct_answer:
+        for char in current_game.word:
             if char == ' ':
                 correct_answer_buttons.append('')
             else:

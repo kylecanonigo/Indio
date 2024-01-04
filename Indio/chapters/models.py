@@ -1,18 +1,12 @@
 from django.db import models
 
-
-class Chapters(models.Model):
+# Create your models here.
+class Chapter(models.Model):
     chapter_id = models.AutoField(primary_key=True)
-    chapter_number = models.IntegerField()
+    chapter_title = models.CharField(max_length=100)
+    chapter_answered = models.IntegerField()
+    chapter_total = models.IntegerField()
+    chapter_status = models.CharField(max_length=100, null=False)
 
     def __str__(self):
-        return f"Chapter {self.chapter_number}"
-
-
-class Lessons(models.Model):
-    lesson_id = models.AutoField(primary_key=True)
-    lesson_number = models.IntegerField()
-    chapter = models.ForeignKey(Chapters, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"Lesson {self.lesson_number} (Chapter {self.chapter.chapter_number})"
+        return "Chapter " + self.chapter_id.__str__() + ": " + self.chapter_title.__str__()
