@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from chapters.views import ChaptersListView
 from website.views import IndexView, AboutView
 from four.views import FourPicsOneWordGameView
 from django.conf.urls.static import static
@@ -24,8 +25,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name="index"),
-    path('about/', AboutView.as_view(), name="about"),
+    path('', ChaptersListView.as_view(), name="index"),
     path('four/', include('four.urls')),
     path('chapters/', include('chapters.urls')),
 ]

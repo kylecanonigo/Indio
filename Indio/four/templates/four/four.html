@@ -52,13 +52,27 @@
                 </div>
             </div>
 
-            <div class="description" style="display: none;">
-                <p>{{ current_game.description }}</p>
+<!--            <div class="description" style="display: none;">-->
+<!--                <p>{{ current_game.description }}</p>-->
+<!--            </div>-->
+
+        <div class="description-modal modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-image: linear-gradient(135deg, #13072e, #3f2182); border-radius: 10px;">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-white" id="descriptionModalLabel">Description</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white;"></button>
+                    </div>
+                    <div class="modal-body" style="text-align: justify; padding: 0 20px; margin: 20px">
+                        <p class="text-white">{{ current_game.description }}</p>
+                    </div>
+                </div>
             </div>
+        </div>
 
             <div class="wow fadeInUp" data-wow-delay="0.5s" style="display: flex; justify-content: flex-end; padding-top: 10px;">
                 <!-- "Hint" button to get a hint for the game -->
-                <a href="#" onclick="toggleDescription()"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-2 hint-button" style="width: 110px;">Show Hint</button></a>
+                <a href="#" onclick="toggleDescription()"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-2 hint-button" style="width: 110px;">Hint</button></a>
                 {% if next_game_index == total_games %}
                     <!-- "Next" button to navigate to the next game -->
                     <a href="{% url 'congrats' %}"><button class="btn btn-outline-light py-2 top-0 end-0 mt-2 me-0" style="width: 110px;">Next</button></a>
@@ -123,16 +137,8 @@
             }
 
               function toggleDescription() {
-                const description = document.querySelector('.description');
-                const hintButton = document.querySelector('.hint-button');
-
-                if (description.style.display === 'none') {
-                    description.style.display = 'block';
-                    hintButton.innerText = 'Hide Hint';
-                } else {
-                    description.style.display = 'none';
-                    hintButton.innerText = 'Show Hint';
-                }
+                const descriptionModal = new bootstrap.Modal(document.getElementById('descriptionModal'));
+                descriptionModal.show();
             }
         </script>
 {% endblock %}

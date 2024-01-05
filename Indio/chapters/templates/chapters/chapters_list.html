@@ -4,80 +4,63 @@
 
 {% block content %}
         <!-- Page Header End -->
-        <div class="container-xxl py-5 page-header position-relative mb-5">
-            <div class="container py-5">
-                <h1 class="display-2 text-white animated slideInDown mb-4">History of the Philippines</h1>
-                <nav aria-label="breadcrumb animated slideInDown">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Grade 4</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
         <!-- Page Header End -->
 
-        <!-- Chapters Start -->
+        <!-- Lessons Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Chapters</h1>
+                    <h1 class="mb-3">Select a Chapter to Play</h1>
                     <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="classes-item">
                             <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-1.jpg' %}" alt="">
                             </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Ang aking bansa</a>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #ffcc00, #ff3300); height:180px;">
+                                <a class="d-block text-center h3 mt-3 mb-4 text-white game-link" href="{% url 'lessons' %}">Ang aking bansa</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="classes-item">
                             <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-2.jpg' %}" alt="">
                             </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);;">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Lipunan at ekonomiya ng aking bansa</a>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #33ccff, #3366ff); height:180px;">
+                                <a class="d-block text-center h3 mt-3 mb-4 text-white game-link" href="{% url 'lessons' %}">Lipunan at ekonomiya ng aking bansa</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="classes-item">
                             <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-3.jpg' %}" alt="">
                             </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Kultura ng aking bansa</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="classes-item">
-                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-4.jpg' %}" alt="">
-                            </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Ang pamamahala sa aking bansa</a>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #33ccff, #3366ff); height:180px;">
+                                <a class="d-block text-center h3 mt-3 mb-4 text-white game-link" href="{% url 'lessons' %}">Kultura ng aking bansa</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="classes-item">
                             <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <img class="img-fluid rounded-circle" src="{% static 'website/img/classes-5.jpg' %}" alt="">
                             </div>
-                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{% url 'lessons' %}">Ako sa pag unlad sa aking bansa</a>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #ff6699, #ff3399); height:180px;">
+                                <a class="d-block text-center h3 mt-3 mb-4 text-white game-link" href="{% url 'lessons' %}">Ang pamamahala sa aking bansa</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="classes-item">
+                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
+                            </div>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #ff9933, #ff6600); height:180px;">
+                                <a class="d-block text-center h3 mt-3 mb-4 text-white game-link" href="{% url 'lessons' %}">Ako sa pag unlad sa aking bansa</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Chapters End -->
+        <!-- Lessons End -->
 {% endblock %}
