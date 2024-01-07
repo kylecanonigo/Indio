@@ -6,11 +6,11 @@ body {
   --y:;
   --x:;
   --distance: 1px;
-  --theme: hsl(180 100% 50%);
-  --theme-bg: hsl(180 100% 50% / 25%);
-  --theme-bg-hover: hsl(180 100% 50% / 40%);
+  --theme: hsl(283 99% 54%);
+  --theme-bg: hsl(283 99% 54% / 25%);
+  --theme-bg-hover: hsl(283 99% 54% / 40%);
   --theme-text: white;
-  --theme-shadow: hsl(180 100% 10% / 25%);
+  --theme-shadow: hsl(283 100% 10% / 25%);
 
   --_max-rotateY: 10deg;
   --_max-rotateX: 15deg;
@@ -169,6 +169,19 @@ body {
       background-color .5s ease;
   }
 }
+
+.threeD-button-set button[disabled] {
+  background-color: #ccc; /* Light gray background for disabled buttons */
+  color: #888; /* Dim gray text color for disabled buttons */
+  cursor: not-allowed; /* Disabled cursor style */
+
+  &:hover {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+  }
+}
+
 
 @keyframes rotate-y {
   50% {

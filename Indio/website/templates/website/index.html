@@ -1,36 +1,65 @@
-
+{% extends "base.html" %}
 {% load static %}
+{% block title %}Chapters{% endblock %}
 
 {% block content %}
-<!doctype html>
-<html lang="en" dir="ltr">
-  <head>
-    <title>Game Menu | GUI Challenges</title>
-    <meta charset="utf-8">
+        <!-- Page Header End -->
+        <!-- Page Header End -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="hsl(221 90% 98%)" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="Canvas" media="(prefers-color-scheme: dark)">
-    <meta name="description" content="🙂">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="{% static 'website/css/menu.css' %}">
-    <script type="module" src="/index.js"></script>
-  </head>
-  <body>
+        <!-- Lessons Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Select a Chapter to Play</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
+                            </div>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #ffcc00, #ff3300); height:180px;">
+                                <a class="d-block text-center h3 mt-3 mb-4 text-white" href="{% url 'four:four' 1 %}"><button class="button-index" {% if chap1 %}disabled{% endif %}>Ang aking bansa</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="classes-item">
+                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
+                            </div>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #ffcc00, #ff3300); height:180px;">
+                                <a class="d-block text-center h3 mb-5 text-white a-link-adjust" style="" href="{% url 'four:four' 2 %}"><button class="button-index" {% if chap2 %}disabled{% endif %}>Lipunan, Kultura at Ekonomiya ng Aking Bansa</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="classes-item">
+                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
+                            </div>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #ffcc00, #ff3300); height:180px;">
+                                <a class="d-block text-center h3 mt-2 mb-4 text-white" href="{% url 'four:four' 3 %}"><button class="button-index" {% if chap3 %}disabled{% endif %}>Ang Pamamahala sa Aking Bansa</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.9s">
+                        <div class="classes-item">
+                            <div class="rounded-circle w-75 mx-auto p-3" style="background-image: linear-gradient(135deg, #13072e, #3f2182);">
+                            </div>
+                            <div class="rounded p-4 pt-5 mt-n5" style="background-image: linear-gradient(135deg, #ffcc00, #ff3300); height:180px;">
+                                <a class="d-block text-center h3 mt-2 mb-4 text-white" href="{% url 'four:four' 4 %}"><button class="button-index" {% if chap4 %}disabled{% endif %}>Ako sa Pag-Unlad ng Aking Bansa</button></a>
+                            </div>
+                        </div>
+                    </div>
 
-    <ul class="threeD-button-set">
-      <li><a href="{% url 'four:four' 1 %}"><button>Chapter 1</button></a></li>
-      <li><a href="{% url 'four:four' 2 %}"><button>Chapter 2</button></a></li>
-      <li><a href="{% url 'four:four' 3 %}"><button>Chapter 3</button></a></li>
-      <li><a href="{% url 'four:four' 4 %}"><button>Chapter 4</button></a></li>
-      <li><a href="{% url 'four:four' 5 %}"><button>Chapter 5</button></a></li>
-    </ul> 
+                </div>
+            </div>
+        </div>
+        <!-- Lessons End -->
+
+<script>
 
 
 
-  </body>
-</html>
+</script>
+
 
 {% endblock %}

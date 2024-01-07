@@ -1,8 +1,8 @@
 /********** Template CSS **********/
 :root {
-    --primary: #FE5D37;
+    --primary: #13072e;
     --light: #FFF5F3;
-    --dark: #103741;
+    --dark: #13072e;
 }
 
 .back-to-top {
@@ -11,6 +11,10 @@
     right: 45px;
     bottom: 45px;
     z-index: 99;
+}
+
+.body {
+    background-color: var(--primary);
 }
 
 
@@ -29,7 +33,7 @@
 }
 
 
-/*** Button Reserved***/
+/*** Button ***/
 .btn {
     font-weight: 500;
     transition: .5s;
@@ -82,7 +86,8 @@ h4,
 .display-4,
 .display-5,
 .display-6 {
-    font-family: 'Lobster Two', cursive;
+
+    font-family: 'Lemon', sans-serif;
     font-weight: 700;
     color: white;
 }
@@ -95,14 +100,26 @@ h6,
 }
 
 .font-secondary {
-    font-family: 'Lobster Two', Sans-serif;
-    font-weight: 600;
-    font-size: 32px;
-
+    font-family: 'Lobster Two', cursive;
 }
 
 
-/** GAME CSS **/
+
+
+
+/*** Classes ***/
+.classes-item {
+    transition: .5s;
+}
+
+.classes-item:hover {
+    margin-top: -10px;
+}
+
+
+
+/*    Game style       */
+
 #game-container {
             max-width: 600px;
             margin: 50px auto;
@@ -110,7 +127,7 @@ h6,
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        }
 
         #image-container {
             display: grid;
@@ -170,7 +187,7 @@ h6,
             justify-content: center;
             margin: 0 5px;
             padding: 10px;
-            background-color: #13072e;
+            background-color: var(--primary);
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -186,7 +203,7 @@ h6,
         #hint-btn,
         #next-level-btn {
             margin-top: 20px;
-            background-color: #13072e;
+            background-color: var(--primary);
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -197,83 +214,11 @@ h6,
             text-decoration: none;
         }
 
-
-
-    .frame {
-        width: 500px;
-        height: 550px;
-        background-color: transparent;
-        margin: auto;
-        text-align: center;
-        border: 1px solid transparent;
-        -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(171,32,253,0);
-        box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(171,32,253,0);
-        background-size: cover;
-        position: relative;
-        top: -5rem;
-        z-index: -1;
-        border: 3px solid #ab20fd;
-        border-radius: 3px;
-    }
-
-    .frame1 {
-        text-align: center;
-        margin: auto;
-        z-index: 10;
-        padding-top: 100px;
-        text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ab20fd 0px 0px 20px, #ab20fd 0px 0px 30px, #ab20fd 0px 0px 40px, #ab20fd 0px 0px 50px, #ab20fd 0px 0px 75px;
-    }
-    .buttonChap {
-        text-align: center;
-        margin-top: 25px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 80px;
-        padding-right: 80px;
-        background-image: linear-gradient(135deg, #13072e, #3f2182);
-        -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(171,32,253,0);
-        box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(171,32,253,0);
-        text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ab20fd 0px 0px 20px, #ab20fd 0px 0px 30px, #ab20fd 0px 0px 40px, #ab20fd 0px 0px 50px, #ab20fd 0px 0px 75px;
-        border: 3px double #ab20fd;
-        border-radius: 3px;
-        color: #00004A;
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 20px;
-    }
-    .buttonChap:hover {
-        opacity: 1;
-        background-color: #00EEE0;
-        border: 1px #99ccff solid;
-    }
-    .buttonChap:active
-    {
-      background-color: #00CCC0;
-      border: 1px #000000 solid;
-    }
-
-
-    .btn-group-vertical {
-        margin-top: 80px;
-    }
-
-    .button-solid {
-      /* strip out default button styles */
-      appearance: none;
-      outline: none;
-      border: none;
-
-      /* bring in brand styles via props */
-      background-color: var(--_btn-bg);
-      color: var(--_btn-text);
-      text-shadow: 0 1px 1px var(--_btn-text-shadow);
-
-      /* large text rounded corner and padded*/
-      font-size: 5vmin;
-      font-family: Audiowide;
-      padding-block: .75ch;
-      padding-inline: 2ch;
-      border-radius: 5px 20px;
-    }
-
-
+        .button-index {
+            appearance: none;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            color: white;
+        }
 
