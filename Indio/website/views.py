@@ -18,7 +18,7 @@ class Home(View):
             try:
                 self.reset()
                 return JsonResponse({'message': 'Reset successfully'}, status=200)
-            except GameWords.DoesNotExist && Chapter.DoesNotExist:
+            except GameWords.DoesNotExist:
                 return JsonResponse({'message': 'Record not found'}, status=404)
         else:
             return JsonResponse({'message': 'Invalid request method'}, status=400)
