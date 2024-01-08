@@ -502,6 +502,13 @@ h6,
     border-right: none;
 }
 
+a.game-link.locked {
+    color: grey !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+}
+
+
 #game-container {
             max-width: 600px;
             margin: 50px auto;
