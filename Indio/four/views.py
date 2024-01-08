@@ -79,7 +79,7 @@ class FourPicsOneWordGameView(View):
         #####TESTER#####
         queryset = GameWords.objects.filter(chapter_id_id=chapter_id, is_ans=False).exclude(word__contains=' ')
         ############
-
+        print(len(queryset))
         if not queryset:
             print("Empty")
             return None, None, None, 0
@@ -93,8 +93,10 @@ class FourPicsOneWordGameView(View):
         self.setSession(request, word_ids)
 
         current_game = self.getCurrentQuestion(current_game_index, queryset)
+        print("Current: " + str(current_game.word_id))
         total_games = len(queryset)
         next_game_index = self.NextIndex(request, current_game_index)
+        print("Next: " + str(next_game_index))
 
         correct_answer_buttons = self._prepare_correct_answer_buttons(current_game)
         return current_game, next_game_index, correct_answer_buttons, total_games

@@ -6,11 +6,11 @@ body {
   --y:;
   --x:;
   --distance: 1px;
-  --theme: hsl(283 99% 54%);
-  --theme-bg: hsl(283 99% 54% / 25%);
-  --theme-bg-hover: hsl(283 99% 54% / 40%);
+  --theme: hsl(78 74% 90%);
+  --theme-bg: hsl(78 74% 90% / 25%);
+  --theme-bg-hover: hsl(78 74% 90% / 40%);
   --theme-text: white;
-  --theme-shadow: hsl(283 100% 10% / 25%);
+  --theme-shadow: hsl(78 74% 90% / 25%);
 
   --_max-rotateY: 10deg;
   --_max-rotateX: 15deg;
@@ -33,7 +33,7 @@ body {
   transform-style: preserve-3d;
 
   /* clamped menu rotation to not be too extreme */
-  transform:
+  /*transform:
     rotateY(
       clamp(
         calc(var(--_max-rotateY) * -1),
@@ -48,7 +48,7 @@ body {
         var(--_max-rotateX)
       )
     )
-  ;
+  ;*/
 
   /* removes Safari focus ring on <ul> after button interaction */
   &:focus {
@@ -170,17 +170,7 @@ body {
   }
 }
 
-.threeD-button-set button[disabled] {
-  background-color: #ccc; /* Light gray background for disabled buttons */
-  color: #888; /* Dim gray text color for disabled buttons */
-  cursor: not-allowed; /* Disabled cursor style */
 
-  &:hover {
-    background-color: #ccc;
-    color: #888;
-    cursor: not-allowed;
-  }
-}
 
 
 @keyframes rotate-y {

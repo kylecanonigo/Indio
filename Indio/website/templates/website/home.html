@@ -1,0 +1,53 @@
+{% load static %}
+
+{% block content %}
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="hsl(221 90% 98%)" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="Canvas" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="🙂">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="{% static 'website/css/menu.css' %}">
+    <!--script type="module" src="{% static 'website/js/index.js' %}"></script-->
+  </head>
+  <body>
+
+    <ul class="threeD-button-set">
+      <li><a href="{% url 'website:index' %}"><button>Play </button></a></li>
+      <li><a href=""><button onclick="">Reset</button></a></li>
+    </ul>
+
+
+  <script>
+    function reset() {
+
+
+                fetch(`{% url "website:update" %}`, {  // Use backticks for template literals
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'  // Add CSRF token for security
+                    },
+                    body: JSON.stringify({}),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);  // Log the server response
+                })
+                .catch(error => console.error('Error:', error));
+    }
+
+  </script>
+
+
+  </body>
+</html>
+
+{% endblock %}
